@@ -31,3 +31,8 @@ Route::get("/detail/{id}",[productController::class,'detail']);
 
 
 Route::post("add_to_cart",[productController::class,'addToCart']);
+
+Route::get("/logout",function(){
+    Session::forget('user');
+    return redirect('/login');
+});
