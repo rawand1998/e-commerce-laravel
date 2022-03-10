@@ -21,6 +21,9 @@ Route::get('/master', function () {
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/register', function () {
+    return view('register');
+});
 Route::post("/login",[userController::class,'login']);
 
 Route::get("/",[productController::class,'index']);
@@ -32,7 +35,7 @@ Route::get("/cartList",[productController::class,'cartList']);
 
 Route::get("/removecart/{id}",[productController::class,'removeFromCart']);
 Route::post("add_to_cart",[productController::class,'addToCart']);
-
+Route::post("/register",[productController::class,'register']);
 Route::get("/logout",function(){
     Session::forget('user');
     return redirect('/login');

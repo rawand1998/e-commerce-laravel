@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Cart;
 use Illuminate\Support\Facades\DB;
 use Session;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 class productController extends Controller
 {
     function index(){
@@ -45,6 +47,14 @@ class productController extends Controller
     function removeFromCart ($id){
         Cart::destroy($id);
         return redirect('/');
+    }
+    function register(Request $request){
+        $user=new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+return redirect('/login');
     }
 }
 
