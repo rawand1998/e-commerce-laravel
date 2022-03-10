@@ -30,7 +30,7 @@ Route::get("/",[productController::class,'index']);
 Route::get("/detail/{id}",[productController::class,'detail']);
 Route::get("/cartList",[productController::class,'cartList']);
 
-
+Route::get("/removecart/{id}",[productController::class,'removeFromCart']);
 Route::post("add_to_cart",[productController::class,'addToCart']);
 
 Route::get("/logout",function(){
